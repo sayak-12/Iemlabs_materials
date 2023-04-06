@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>light on off</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Good Morning!<br></h1>
+    <i class="fa-solid fa-moon"></i>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Morning%2C_just_after_sunrise%2C_Namibia.jpg/1200px-Morning%2C_just_after_sunrise%2C_Namibia.jpg" alt="" >
+
+<script>
+    var a = document.querySelector("i");
+    var b = document.querySelector("img");
+    var c= document.querySelector("h1");
+    a.addEventListener("click", ()=>{
+        document.querySelector("body").classList.toggle("dark");
+        if (document.querySelector("body").classList.contains("dark")) {
+            a.setAttribute("class", "fa-solid fa-sun");
+            b.setAttribute("src", "https://cdn.pixabay.com/photo/2016/11/25/23/15/moon-1859616__340.jpg")
+            c.innerHTML = "Good Night<br>";
+        }
+        else{
+            a.setAttribute("class", "fa-solid fa-moon");
+            b.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Morning%2C_just_after_sunrise%2C_Namibia.jpg/1200px-Morning%2C_just_after_sunrise%2C_Namibia.jpg")
+            c.innerHTML = "Good Morning<br>";
+
+        }
+    })
+</script>
+</body>
+</html>

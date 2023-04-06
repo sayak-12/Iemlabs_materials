@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+i{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    color: black;
+    cursor: pointer;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+img{
+    width: 30rem;
+    height: 20rem;
+}
+.dark{
+    background-color: black;
+}
+.dark i{
+    color: white;
+}
+.dark h1{
+    color: white;
+}

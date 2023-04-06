@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grads{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    background-color: rebeccapurple;
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap;
+}
+.grad{
+    position: relative;
+    margin: 2rem;
+    width: 28%;
+    height: 20rem;
+    background-color: aquamarine;
+}
+.lin.grad{
+    background: linear-gradient(to bottom, red, white);
+}
+.ang.grad.grad{
+    background: conic-gradient(from 0deg, blue, red);
+}
+.rad.grad{
+    background: radial-gradient(circle at bottom, red , green , blue 60%, transparent);
+}
+
+.solid.grad::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    top: 0;
+    animation: anim 3s linear infinite;
+    left: 0;
+    background: linear-gradient(to right, transparent, blue, transparent);
+    transform-origin: right;
+}
+.solid.grad::after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background-color: #1a45d3;
+    animation: anim 3s linear infinite;
+    transform-origin: left;
+
+}
+@keyframes anim {
+    from{
+        transform: scaleX(0);
+    }
+    50%{
+        transform: scaleX(1);
+
+    }
+    to{
+        transform: scaleX(0);
+    }
+}

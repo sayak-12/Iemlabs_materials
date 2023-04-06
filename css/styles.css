@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.container{
+    height: max-content;
+    width: 100%;
+    background-color: blueviolet;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    gap: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.cards{
+    display: flex;
+    position: relative;
+    height: 20rem;
+    width: 23%;
+    background-color: #ee6060;
+    /* animation: colour-change 25s ease-in infinite; */
+}
+#animate{
+
+    animation: animate 2s ease-in infinite;
+}
+@keyframes animate{
+    0%{
+        left: 0px;
+    }
+    50%{
+        left: 100px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+@keyframes colour-change{
+    0%{
+       background-color: #ee6060; 
+    }
+    10%{
+        background-color: #eec860; 
+
+    }
+    20%{
+        background-color: #a5ee60; 
+        
+    }
+    30%{
+        background-color: #60eeca; 
+
+    }
+    40%{
+        background-color: #6081ee; 
+
+    }
+    50%{
+        background-color: #7560ee; 
+
+    }
+    60%{
+        background-color: #c660ee; 
+
+    }
+    70%{
+        background-color: #ee60bf; 
+
+    }
+    80%{
+        background-color: #ee6073; 
+
+    }
+    90%{
+        background-color: #f3f3f3; 
+
+    }
+    100%{
+        background-color: #ee6060; 
+
+    }
+}
+@media screen and (max-width:1200px){
+    .cards{
+        width: 30%;
+    }
+}
+@media screen and (max-width:768px){
+    .cards{
+        width: 45%;
+    }
+}
+@media screen and (max-width:400px){
+    .cards{
+        width: 90%;
+    }
+}
