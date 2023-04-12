@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My contact Form</title>
+</head>
+<body>
+    <div action="">
+        <label for="">Enter Username</label><input type="text" class="username"><br>
+        <label for="">Enter Title</label><input type="text" class="title"><br>
+        <label for="">Enter Description</label><textarea name="" class="desc" cols="30" rows="10"></textarea><br>
+        <button id="btn">Submit Blog</button>
+    </div>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import { getDatabase,ref, set,onValue, push as psh } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyAcQY-rv3I88zyp5dt07sZhFegSfGFLc6k",
+    authDomain: "contact-form-21548.firebaseapp.com",
+    projectId: "contact-form-21548",
+    storageBucket: "contact-form-21548.appspot.com",
+    messagingSenderId: "1037341062152",
+    databaseURL: "https://contact-form-21548-default-rtdb.firebaseio.com",
+    appId: "1:1037341062152:web:b8e0fee790f4c6b688cdbd"
+  };
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  function writeUserData(name, title, desc) {
+  var keyn = psh(ref(database, 'blogs/' + name), {
+    username: name,
+    title: title,
+    desc : desc
+  }).key;
+  console.log("succeed");
+  ReadUserData(name, keyn);
+
+}
+  function ReadUserData(name,key) {
+  const blog = ref(database, `blogs/${name}/${key}/title`);
+onValue(blog, (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+});
+}
+document.getElementById("btn").onclick = ()=>{
+    var username = document.querySelector(".username").value;
+    var title = document.querySelector(".title").value;
+    var desc = document.querySelector(".desc").value;
+    writeUserData(username,title,desc);
+    
+}
+</script>
+</body>
+</html>

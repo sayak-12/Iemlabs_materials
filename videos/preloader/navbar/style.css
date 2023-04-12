@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.navbar{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background: #292929;
+}
+.logo{
+    position: absolute;
+    left: 10%;
+    color: white;
+}
+.menu{
+    position: absolute;
+    right: 10%;
+    display: flex;
+    gap: 2rem;
+
+}
+.menuitem{
+    color: white;
+    cursor: pointer;
+}
+.menuitem:hover{
+    color: rgb(75, 180, 250);
+}

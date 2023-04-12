@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 0.4s;
+    /* overflow: hidden; */
+}
+
+.preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+.preloader img{
+    animation: fade 1s ease infinite;
+    transition: 1s;
+transform: scale(1);
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes prog {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+    
+}
+.invisible{
+    opacity: 0;
+    pointer-events: none;
+}
+.preloader img.big{
+transform: scale(50);
+animation: none;
+
+
+}
+form{
+    height: max-content;
+    width: 25%;
+}
+.navbar{
+    height: 10vh;
+
+}
+.cen{
+    height: 90vh;
+    position: relative;
+    top: 5vh;
+}
+
