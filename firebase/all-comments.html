@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My contact form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="h1 text-center mb-5">My contact form</div>
+    <ul class="ul">
+
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD9SKDuaNY6J4rDFWuYp_L8ZvtAXaslrfQ",
+            authDomain: "contact-form-new-25690.firebaseapp.com",
+            projectId: "contact-form-new-25690",
+            storageBucket: "contact-form-new-25690.appspot.com",
+            databaseURL: "https://contact-form-new-25690-default-rtdb.firebaseio.com",
+            messagingSenderId: "1012224225787",
+            appId: "1:1012224225787:web:32d6134d4c308f04dc9b5e"
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const dbref = ref(database, 'messages/');
+        onValue(dbref, (snapshot) => {
+            var data = snapshot.val();
+            console.log(data);
+        });
+    </script>
+</body>
+
+</html>

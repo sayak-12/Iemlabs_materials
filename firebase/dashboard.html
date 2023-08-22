@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>your dashboard</title>
+</head>
+<body>
+    <img src="" alt="user image" id="myimg">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getDatabase,ref, set,onValue, push as psh } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import { getStorage , ref as strref, uploadBytes ,getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+        import {username} from "/form.html";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAcQY-rv3I88zyp5dt07sZhFegSfGFLc6k",
+          authDomain: "contact-form-21548.firebaseapp.com",
+          projectId: "contact-form-21548",
+          storageBucket: "contact-form-21548.appspot.com",
+          messagingSenderId: "1037341062152",
+          databaseURL: "https://contact-form-21548-default-rtdb.firebaseio.com",
+          appId: "1:1037341062152:web:b8e0fee790f4c6b688cdbd"
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const storage = getStorage(app);
+        getDownloadURL(strref(storage, 'sayak'))
+  .then((url) => {
+    
+    const img = document.getElementById('myimg');
+    img.setAttribute('src', url);
+  })
+  .catch((error) => {
+    // Handle any errors
+  });
+  console.log(username);
+
+      </script>
+</body>
+</html>

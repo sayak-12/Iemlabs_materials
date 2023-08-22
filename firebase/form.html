@@ -10,12 +10,14 @@
     <div action="">
         <label for="">Enter Username</label><input type="text" class="username"><br>
         <label for="">Enter Title</label><input type="text" class="title"><br>
+        <input type="file" name="" id="file">
         <label for="">Enter Description</label><textarea name="" class="desc" cols="30" rows="10"></textarea><br>
         <button id="btn">Submit Blog</button>
     </div>
     <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
   import { getDatabase,ref, set,onValue, push as psh } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  import { getStorage , ref as strref, uploadBytes ,getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js"
   const firebaseConfig = {
     apiKey: "AIzaSyAcQY-rv3I88zyp5dt07sZhFegSfGFLc6k",
     authDomain: "contact-form-21548.firebaseapp.com",
@@ -27,6 +29,8 @@
   };
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  const storage = getStorage(app);
+  var username ="aksjdh";
   function writeUserData(name, title, desc) {
   var keyn = psh(ref(database, 'blogs/' + name), {
     username: name,
@@ -48,8 +52,13 @@ document.getElementById("btn").onclick = ()=>{
     var username = document.querySelector(".username").value;
     var title = document.querySelector(".title").value;
     var desc = document.querySelector(".desc").value;
+    var file = document.getElementById("file").files[0];
     writeUserData(username,title,desc);
-    
+    uploadBytes(strref(storage, username), file ).then((snapshot) => {
+  console.log('Uploaded ' + snapshot);
+  window.location.href= "dashboard.html";
+});
+module.exports = username;
 }
 </script>
 </body>
